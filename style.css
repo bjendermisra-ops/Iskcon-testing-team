@@ -1,0 +1,366 @@
+/* =========================================
+   ULTRA-PREMIUM ISKCON UI/UX DESIGN (DIVINE EDITION)
+   ========================================= */
+:root {
+    --bg-main: #0c0400;          
+    --bg-card: #1f1105;          
+    --bg-input: #120701;
+    --border-color: rgba(255, 153, 51, 0.15); 
+    --border-active: #f5a623;
+    --text-primary: #f8ecd7;     
+    --text-secondary: #c9b099;
+    --accent-orange: #f29f31;    
+    --accent-gold-glow: #e69019;
+    --whatsapp-green: #25D366;
+    --whatsapp-hover: #1baf51;
+    --card-shadow: 0 18px 45px rgba(0, 0, 0, 0.8), inset 0 2px 5px rgba(242, 159, 49, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    padding: 40px 15px 90px 15px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: 
+        radial-gradient(circle at 50% 0%, rgba(242, 159, 49, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 20% 90%, rgba(242, 159, 49, 0.05) 0%, transparent 40%);
+    scroll-behavior: smooth;
+}
+
+/* DIVINE BRANDING & LOGOS AREA */
+.spiritual-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 650px;
+    margin-bottom: 30px;
+    animation: fadeDown 0.7s ease-out backwards;
+}
+
+.logos-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.brand-logo-ring {
+    position: relative;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--accent-orange), #59330a, var(--accent-gold-glow));
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(242, 159, 49, 0.3);
+}
+
+.brand-logo-inner {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #0c0400;
+    object-fit: cover;
+    border: 2px solid #000;
+    padding: 2px;
+}
+
+.prabhupada-pic {
+    width: 105px;
+    height: 105px;
+}
+
+.temple-name {
+    font-family: 'Cinzel', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0px 4px 15px rgba(242, 159, 49, 0.5);
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+
+.temple-subtitle {
+    color: var(--accent-orange);
+    font-size: 13.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.maha-mantra-ribbon {
+    font-family: 'Cinzel', serif;
+    color: rgba(242, 159, 49, 0.6);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    border-top: 1px solid rgba(242, 159, 49, 0.2);
+    border-bottom: 1px solid rgba(242, 159, 49, 0.2);
+    max-width: 500px;
+    line-height: 1.8;
+}
+
+/* GLASSMORPHIC CONTAINERS */
+.master-card-container, .apps-container, .feedback-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--bg-card);
+    border-radius: 28px;
+    margin-bottom: 40px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.master-card-container { animation: fadeUp 0.6s ease-out 0.2s backwards; }
+
+.card-top-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #1f1105, var(--accent-orange), #1f1105);
+    opacity: 0.9;
+}
+
+.card-padding {
+    padding: 35px 30px;
+}
+
+.section-title-inner {
+    font-family: 'Cinzel', serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+    text-shadow: 0px 4px 10px rgba(242, 159, 49, 0.2);
+}
+
+.highlight-icon {
+    color: var(--bg-card);
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold-glow));
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(242, 159, 49, 0.3);
+}
+
+.instructions-text {
+    text-align: center;
+    color: #eaddd0;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    opacity: 0.85;
+}
+
+.btn-super-join {
+    width: 100%;
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold-glow));
+    color: #0c0500;
+    padding: 16px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 8px 25px rgba(242, 159, 49, 0.4), 0 0 0 rgba(242, 159, 49, 0.5);
+    transition: transform 0.2s;
+    animation: mightyPulse 2s infinite;
+    margin-bottom: 20px;
+}
+
+.btn-super-join i { font-size: 20px; }
+
+@keyframes mightyPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(242, 159, 49, 0.5); }
+    70% { transform: scale(1.02); box-shadow: 0 0 0 18px rgba(242, 159, 49, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(242, 159, 49, 0); }
+}
+
+.btn-super-join:hover { filter: brightness(1.1); }
+.btn-super-join:active { transform: scale(0.96); animation: none; }
+
+.visual-guide-box {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px dashed rgba(242, 159, 49, 0.4);
+    border-radius: 18px;
+    padding: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.visual-guide-header {
+    font-size: 13px; font-weight: 600; color: var(--accent-orange); margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 0.8px; display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+
+.visual-guide-img {
+    width: 100%; max-width: 380px; height: auto; border-radius: 12px;
+    border: 2px solid rgba(242, 159, 49, 0.3); box-shadow: 0 5px 15px rgba(0,0,0,0.6); transition: transform 0.3s ease;
+}
+
+.visual-guide-footer { font-size: 12.5px; color: var(--text-secondary); margin-top: 10px; font-style: italic; opacity: 0.8;}
+
+.checkbox-wrapper {
+    display: flex; align-items: center; justify-content: center; gap: 15px;
+    margin: 0 auto; padding: 14px 18px; border-radius: 14px;
+    background: rgba(255, 153, 51, 0.05); border: 1px dashed rgba(255, 153, 51, 0.25);
+    cursor: pointer; transition: background 0.3s;
+}
+
+input[type="checkbox"] {
+    appearance: none; -webkit-appearance: none; width: 26px; height: 26px;
+    border: 2px solid var(--text-secondary); border-radius: 6px; background-color: var(--bg-input);
+    cursor: pointer; position: relative; flex-shrink: 0; transition: all 0.2s;
+}
+
+input[type="checkbox"]:checked { border-color: var(--accent-orange); background-color: var(--accent-orange); }
+input[type="checkbox"]:checked::after {
+    content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #1f1105;
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -46%); font-size: 14px;
+}
+
+.checkbox-label { font-size: 14.5px; font-weight: 500; color: #fff; }
+
+/* DYNAMIC APPS CARD SECTION */
+#apps-container { background: transparent; box-shadow: none; border: none; padding: 0;}
+.app-card {
+    background-color: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: 28px; padding: 35px 30px; box-shadow: var(--card-shadow); text-align: center; position: relative;
+}
+.app-card .card-top-accent { background: linear-gradient(90deg, #1f1105, #10b981, #1f1105); }
+
+.app-logo {
+    width: 105px; height: 105px; border-radius: 24px; margin-bottom: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.8), inset 0 2px 5px rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 153, 51, 0.2);
+}
+
+.app-title { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.app-subtitle { font-size: 13.5px; color: var(--accent-orange); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 25px; }
+
+.btn-custom-play {
+    display: flex; align-items: center; justify-content: center;
+    background: #000; color: #fff; padding: 14px 25px; border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2); gap: 18px; width: 100%; transition: all 0.3s ease;
+    cursor: pointer; position: relative; overflow: hidden;
+}
+
+.btn-custom-play:hover {
+    background: #111;
+    border-color: var(--accent-orange);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(242, 159, 49, 0.25);
+}
+
+.play-icon-box {
+    font-size: 30px; color: #fff;
+}
+
+.play-text-box {
+    display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+}
+
+.play-small { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #bbb; margin-bottom: 2px;}
+.play-large { font-size: 19px; font-weight: 600; letter-spacing: 0.5px;}
+
+.btn-testing-hidden-backup {
+    width: 100%; padding: 12px; background: transparent; border: none;
+    color: #5c4430; font-size: 13px; font-weight: 400; text-decoration: underline;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    margin-top: 15px; opacity: 0.6; transition: 0.3s;
+}
+
+.btn-testing-hidden-backup:hover { color: var(--accent-orange); opacity: 1; }
+
+/* BUG REPORTING */
+.feedback-container { padding: 40px 30px; border-left: 5px solid var(--accent-orange); background: linear-gradient(145deg, var(--bg-card), #140b05); animation: fadeUp 0.8s ease-out 0.4s backwards;}
+.feedback-intro { font-size: 14px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 30px; font-weight: 300; text-align: center;}
+
+.form-group { margin-bottom: 24px; text-align: left; }
+
+.form-group label {
+    display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500;
+    color: #cca480; margin-bottom: 10px; letter-spacing: 0.3px;
+}
+
+.form-group label i { color: var(--accent-orange); font-size: 13px; opacity: 0.8;}
+
+.input-style {
+    width: 100%; padding: 16px 20px; border-radius: 16px; background-color: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255, 153, 51, 0.2); color: #fff; font-size: 14.5px;
+    transition: all 0.3s; outline: none; box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.input-style:focus {
+    border-color: var(--border-active);
+    background-color: rgba(242, 159, 49, 0.05);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5), 0 0 0 4px rgba(242, 159, 49, 0.1);
+}
+
+.input-style::placeholder { color: #6e5845; }
+textarea.input-style { min-height: 120px; resize: vertical; line-height: 1.6;}
+textarea.diagnostic-view { min-height: 85px; font-family: monospace; color: #f5a623; font-size: 13px; line-height: 1.6;}
+.readonly-field { cursor: not-allowed; }
+
+.btn-whatsapp {
+    width: 100%; padding: 18px; background: linear-gradient(135deg, var(--whatsapp-green), var(--whatsapp-hover));
+    color: white; border: none; border-radius: 16px; font-size: 17px; font-weight: 700;
+    display: flex; justify-content: center; align-items: center; gap: 12px; cursor: pointer;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); transition: all 0.3s; margin-top: 10px;
+}
+.btn-whatsapp i { font-size: 20px;}
+.btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5); }
+.btn-whatsapp:active { transform: scale(0.97); }
+
+.btn-submit-fallback-hidden {
+    width: 100%; background: transparent; border: none; padding: 12px;
+    color: #5c4430; font-size: 13px; cursor: pointer; text-decoration: underline; margin-top: 8px; transition: 0.3s;
+}
+.btn-submit-fallback-hidden:hover { color: var(--accent-orange); }
+
+/* TOASTS AND ANIMATIONS */
+.toast-notification {
+    position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-20px);
+    background: linear-gradient(135deg, #ef4444, #dc2626); color: white; padding: 14px 25px;
+    border-radius: 100px; box-shadow: 0 10px 25px rgba(239, 68, 68, 0.4); font-size: 14px; font-weight: 600;
+    z-index: 10000; opacity: 0; pointer-events: none; display: flex; align-items: center; gap: 8px; transition: 0.4s;
+}
+.toast-success { background: linear-gradient(135deg, var(--accent-orange), var(--border-active)); box-shadow: 0 10px 25px rgba(242, 159, 49, 0.3); }
+
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-25px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(35px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 500px) {
+    .logos-container { gap: 15px;}
+    .brand-logo-inner { width: 75px; height: 75px; }
+    .prabhupada-pic { width: 90px; height: 90px;}
+    .temple-name { font-size: 26px; }
+    .temple-subtitle { font-size: 11px; letter-spacing: 2px;}
+}
