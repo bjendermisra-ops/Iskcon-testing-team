@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISKCON Hadapsar - Beta App Testing Portal</title>
+
+    <!-- Fonts: Matching App UI perfectly (Cinzel & Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    
+    <!-- LINK TO YOUR CSS FILE -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BRAND NEW TOP HEADER AREA WITH LOGOS & HARE KRISHNA MANTRA -->
+    <div class="spiritual-header">
+        <div class="logos-container">
+            <!-- ISKCON HADAPSAR Temple Logo -->
+            <div class="brand-logo-ring">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh89ueri3DvWfVUmM76dyYJSTCLcDC6oYuAT3j-ezAKl5iDeJ97q28vt2MR39RJwL8BGI91we6F4DRj-u7j1EE2NPyQRwFs0HfYcB4HjxZ9VoeUQWGR7GdARSdow00uHqEehsr6gOVDFG15mntfIdNuOrQ_fxAZHCjMWU9kEjzaUMhuN52vsKMA6Tb9Dtx3/s256/1000096788.png" 
+                     alt="ISKCON Hadapsar Logo" class="brand-logo-inner">
+            </div>
+            
+            <!-- Srila Prabhupada Image -->
+            <div class="brand-logo-ring prabhupada-pic">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiM9-n8c08S-5PIf_QdIfTj2eMty69cIQ2wIin3a985Q1O9L03tVb0_sW-6sMvOaPz6426rMofE-QZ1I6gWjQeC3x2G4I844Y_v23_zWf4JkP2x24R2kI4vC77_7C-0wE-H7gK4l8L23O/s512/prabhupada.jpg" 
+                     alt="Srila Prabhupada" 
+                     onerror="this.src='https://placehold.co/400x400/0c0400/f29f31?text=Prabhupada+Pic'"
+                     class="brand-logo-inner prabhupada-pic">
+            </div>
+        </div>
+
+        <h1 class="temple-name">ISKCON HADAPSAR</h1>
+        <h2 class="temple-subtitle">Founder-Acharya: His Divine Grace A.C. Bhaktivedanta Swami Prabhupada</h2>
+        
+        <div class="maha-mantra-ribbon">
+            HARE KRISHNA HARE KRISHNA<br>
+            KRISHNA KRISHNA HARE HARE<br>
+            HARE RAMA HARE RAMA<br>
+            RAMA RAMA HARE HARE
+        </div>
+    </div>
+
+    <!-- 1: JOIN GROUP CARD -->
+    <div class="master-card-container">
+        <div class="card-top-accent"></div>
+        <div class="card-padding">
+            <h2 class="section-title-inner"><i class="fas fa-users highlight-icon"></i> MUST DO FIRST</h2>
+            <p class="instructions-text">Play Store validation requires your Google ID. By tapping below and joining the sacred Google testing group, your account becomes instantly whitelisted for direct app installation!</p>
+            
+            <button class="btn-super-join" onclick="openGroup()">
+                <i class="fab fa-google"></i> Whitelist Account (Join Group)
+            </button>
+            
+            <!-- VISUAL GUIDE IMAGE BOX WITH YOUR SPECIFIC SCREENSHOT -->
+            <div class="visual-guide-box">
+                <div class="visual-guide-header"><i class="fas fa-eye"></i> Quick visual guide</div>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNvwAZjCGnpusLNgXUkfSKsgf68jkRYij5C-qBio87skSjd1OPI7peCEFq8R7CzMsopVleXkg7ClMoAMWhmYNeJO2TkrN-h2IS_RjoEXQ9Cr8fBm4__dhUrTEbO5R2Qg4JafqKPu0tqQF6BF3n8ezSldnXCDOALL2-60DBqv11uML_cr_0bBUhWELvNP2S/s992/1000228173.jpg" 
+                     class="visual-guide-img" alt="Accept testing image guide">
+                <div class="visual-guide-footer">⬆ Click 'Join Group' exactly as shown when page opens</div>
+            </div>
+            
+            <label class="checkbox-wrapper">
+                <input type="checkbox" id="confirm">
+                <span class="checkbox-label">I Confirm that I joined the group above</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- 2: DYNAMIC INSTALL APP INJECTION DIV -->
+    <div id="apps-container" class="apps-container"></div>
+
+    <!-- 3: ADVANCED DIAGNOSTICS BUG TRACKER -->
+    <div class="feedback-container">
+        <form id="bugReportForm" onsubmit="handleFormSubmission(event)">
+            
+            <div class="section-title-inner" style="margin-bottom: 5px;"><i class="fas fa-leaf highlight-icon"></i> IDEA OR AN ISSUE?</div>
+            <p class="feedback-intro">If you face any technical glitch, or have a beautiful idea to make the experience better, message Developer Devotee (Santosh Prabhu) directly.</p>
+
+            <div class="form-group">
+                <label><i class="fas fa-user-edit"></i> Prabhu/Mataji Name</label>
+                <input type="text" id="fb_name" class="input-style" placeholder="Ex: Chaitanya Das" required>
+            </div>
+            
+            <div class="form-group">
+                <label><i class="fas fa-list-alt"></i> Subject of Reporting</label>
+                <select id="fb_type" class="input-style" required>
+                    <option value="Technical Glitch">App Bug / Glitch 🐛</option>
+                    <option value="Brilliant Idea">Beautiful UI/UX Idea ✨</option>
+                    <option value="Feedback/Support">Seeking App Support 🙏</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-microchip"></i> Live Advanced Diagnostic Info (Automated)</label>
+                <textarea id="fb_device" class="input-style readonly-field diagnostic-view" readonly title="System actively reading logs..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label><i class="fas fa-feather"></i> Elaborate Detail (Add Screen desc.)</label>
+                <textarea id="fb_message" class="input-style" placeholder="Hare Krishna, the problem I am facing is..." required></textarea>
+            </div>
+            
+            <button type="button" class="btn-whatsapp" onclick="handleWhatsAppSubmission()">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp (Dev. Santosh)
+            </button>
+            
+            <button type="submit" class="btn-submit-fallback-hidden" title="Preserved Execution Mechanism Protocol Alive!">
+                (Or use native secure Email App Protocol Backup)
+            </button>
+        </form>
+    </div>
+
+    <!-- LINK TO YOUR JS FILE -->
+    <script src="script.js"></script>
+</body>
+</html>
