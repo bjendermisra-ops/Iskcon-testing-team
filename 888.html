@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Srimad Bhagavad Gita – Premium Multi-lingual Edition</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top, #140927 0%, #060200 100%);
+            color: #FDF6EC;
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0806;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #F29F31;
+            border-radius: 12px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFB74D;
+        }
+
+        /* ===== PARTICLE CANVAS ===== */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ===== GLASSMORPHISM UTILITY ===== */
+        .glass {
+            background: rgba(22, 11, 4, 0.70);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(242, 159, 49, 0.25);
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .glass-light {
+            background: rgba(22, 11, 4, 0.55);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(242, 159, 49, 0.15);
+            border-radius: 16px;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== MULTI-COLOR ACCENTS & GRADIENTS ===== */
+        .text-gold {
+            color: #FFB74D;
+        }
+        .text-saffron {
+            color: #F29F31;
+        }
+        .text-peacock {
+            color: #00E5FF;
+        }
+        .text-rose {
+            color: #FF70A6;
+        }
+        .text-cream {
+            color: #FDF6EC;
+        }
+        .text-muted {
+            color: rgba(253, 246, 236, 0.60);
+        }
+
+        /* Gradients for text headers */
+        .grad-saffron-gold {
+            background: linear-gradient(135deg, #FF9F00 0%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .grad-peacock-teal {
+            background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .grad-rose-gold {
+            background: linear-gradient(135deg, #FF0844 0%, #FFB199 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        .font-serif {
+            font-family: 'Cinzel', serif;
+        }
+
+        .heading-xl {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: clamp(2.4rem, 6.5vw, 4.4rem);
+            line-height: 1.15;
+            letter-spacing: 0.02em;
+        }
+        .heading-lg {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            line-height: 1.2;
+        }
+        .heading-md {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            line-height: 1.3;
+        }
+        .heading-sm {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+            letter-spacing: 0.04em;
+        }
+
+        .body-lg {
+            font-size: clamp(1rem, 1.3vw, 1.2rem);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        .body-md {
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        .body-sm {
+            font-size: 0.85rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(145deg, #FF8C00, #E06C00);
+            color: #060200;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 15px 38px;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 6px 28px rgba(242, 159, 49, 0.35);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(255, 140, 0, 0.50);
+            background: linear-gradient(145deg, #FFB74D, #FF8C00);
+        }
+        .btn-primary:active {
+            transform: scale(0.97);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: #FDF6EC;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 13px 30px;
+            border: 1.5px solid rgba(0, 229, 255, 0.40);
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            backdrop-filter: blur(8px);
+            background: rgba(22, 11, 4, 0.30);
+        }
+        .btn-secondary:hover {
+            border-color: #00E5FF;
+            background: rgba(0, 229, 255, 0.12);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 229, 255, 0.20);
+        }
+
+        .btn-google {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(22, 11, 4, 0.60);
+            color: #FDF6EC;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 13px 32px;
+            border: 1.5px solid rgba(242, 159, 49, 0.30);
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            backdrop-filter: blur(8px);
+        }
+        .btn-google:hover:not(.disabled) {
+            border-color: #FFB74D;
+            background: rgba(242, 159, 49, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(242, 159, 49, 0.20);
+        }
+        .btn-google.disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            filter: grayscale(0.5);
+        }
+        .btn-google i {
+            font-size: 1.5rem;
+            color: #F29F31;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: #25D366;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 15px 36px;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 28px rgba(37, 211, 102, 0.30);
+            text-decoration: none;
+        }
+        .btn-whatsapp:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.45);
+            background: #2ad16e;
+        }
+        .btn-whatsapp i {
+            font-size: 1.4rem;
+        }
+
+        /* ===== NAVIGATION (FIXED & RESPONSIVE COLLAPSIBLE) ===== */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            padding: 12px 28px;
+            border-radius: 60px;
+            background: rgba(22, 11, 4, 0.75);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid rgba(242, 159, 49, 0.20);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: calc(100% - 40px);
+            max-width: 1000px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .navbar .brand {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: #FFB74D;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+        }
+        .navbar .brand i {
+            font-size: 1.3rem;
+            color: #F29F31;
+            text-shadow: 0 0 10px rgba(242,159,49,0.4);
+        }
+
+        /* Hamburger Toggle Button */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 1000;
+            padding: 6px;
+        }
+        .nav-toggle .bar {
+            width: 22px;
+            height: 2px;
+            background-color: #FDF6EC;
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .navbar .nav-links a {
+            color: rgba(253, 246, 236, 0.75);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            transition: color 0.3s, transform 0.2s;
+            letter-spacing: 0.04em;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+        }
+        .navbar .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: #F29F31;
+            transition: width 0.3s ease;
+        }
+        .navbar .nav-links a:hover {
+            color: #F29F31;
+        }
+        .navbar .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .navbar .nav-links .nav-cta {
+            background: linear-gradient(135deg, #FF8C00, #F29F31);
+            color: #060200;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 15px rgba(242, 159, 49, 0.25);
+        }
+        .navbar .nav-links .nav-cta::after {
+            display: none;
+        }
+        .navbar .nav-links .nav-cta:hover {
+            background: linear-gradient(135deg, #FFB74D, #FF8C00);
+            color: #060200;
+            transform: scale(1.04) translateY(-1px);
+            box-shadow: 0 6px 20px rgba(242, 159, 49, 0.4);
+        }
+
+        /* Mobile Expand State */
+        @media (max-width: 768px) {
+            .navbar {
+                border-radius: 20px;
+                top: 15px;
+                padding: 14px 24px;
+                flex-wrap: wrap;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .navbar .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 16px;
+                padding-top: 16px;
+                border-top: 1px solid rgba(242, 159, 49, 0.15);
+                align-items: center;
+                animation: slideDown 0.3s ease forwards;
+            }
+            .navbar.expanded .nav-links {
+                display: flex;
+            }
+            /* Hamburger morph effect */
+            .navbar.expanded .nav-toggle .bar:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+            .navbar.expanded .nav-toggle .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .navbar.expanded .nav-toggle .bar:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== HERO ===== */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 0 60px;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-content .badge {
+            display: inline-block;
+            background: rgba(242, 159, 49, 0.12);
+            border: 1px solid rgba(242, 159, 49, 0.25);
+            border-radius: 40px;
+            padding: 6px 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #F29F31;
+            margin-bottom: 24px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .hero-content .badge i {
+            margin-right: 6px;
+        }
+
+        .hero-content .subtitle {
+            margin-top: 20px;
+            max-width: 540px;
+            opacity: 0.85;
+        }
+
+        .hero-content .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 36px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 44px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(242, 159, 49, 0.15);
+        }
+        .hero-stats .stat-num {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 2rem;
+            background: linear-gradient(135deg, #FFB74D 0%, #F29F31 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-stats .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.65;
+            letter-spacing: 0.04em;
+        }
+
+        /* ===== 3D PHONE SHOWCASE & IMAGE SLIDER ===== */
+        .phone-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1200px;
+        }
+
+        .phone-mockup {
+            width: 300px;
+            height: 610px;
+            background: #0d0806;
+            border-radius: 48px;
+            border: 2px solid rgba(242, 159, 49, 0.30);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85), 0 0 50px rgba(242, 159, 49, 0.08);
+            padding: 13px;
+            position: relative;
+            transform: rotateY(-6deg) rotateX(4deg);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .phone-mockup:hover {
+            transform: rotateY(-2deg) rotateX(2deg) scale(1.02);
+            border-color: rgba(0, 229, 255, 0.40);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 50px rgba(0, 229, 255, 0.15);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #0d0806;
+            border-radius: 36px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 28px;
+            background: #0d0806;
+            border-radius: 20px;
+            z-index: 15;
+            border: 1px solid rgba(242, 159, 49, 0.10);
+        }
+
+        .phone-slides {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 36px;
+            cursor: grab;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .phone-slides:active {
+            cursor: grabbing;
+        }
+
+        .phone-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 0; /* Padding overridden to let slide-image cover completely */
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transform: scale(0.95);
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .phone-slide.active {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+
+        /* Slide Image styles with copy protection */
+        .slide-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+            -webkit-user-drag: none;
+            user-drag: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        .phone-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 12;
+        }
+        .phone-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(253, 246, 236, 0.25);
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+        .phone-dots span.active {
+            background: #F29F31;
+            width: 22px;
+            border-radius: 6px;
+            box-shadow: 0 0 16px rgba(242, 159, 49, 0.30);
+        }
+
+        /* ===== FEATURES ===== */
+        #features {
+            padding: 100px 0 80px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            margin-top: 55px;
+        }
+
+        .feature-card {
+            padding: 36px 30px 32px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: default;
+            border-radius: 24px;
+            background: rgba(22, 11, 4, 0.60);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(242, 159, 49, 0.10);
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, var(--hover-color, rgba(242, 159, 49, 0.15)), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        }
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Multi-Color Card borders */
+        .feature-card.col-saffron {
+            --hover-color: rgba(242, 159, 49, 0.18);
+            border-color: rgba(242, 159, 49, 0.15);
+        }
+        .feature-card.col-saffron:hover {
+            border-color: rgba(242, 159, 49, 0.45);
+            box-shadow: 0 20px 50px rgba(242, 159, 49, 0.12);
+        }
+
+        .feature-card.col-peacock {
+            --hover-color: rgba(0, 229, 255, 0.18);
+            border-color: rgba(0, 229, 255, 0.12);
+        }
+        .feature-card.col-peacock:hover {
+            border-color: rgba(0, 229, 255, 0.45);
+            box-shadow: 0 20px 50px rgba(0, 229, 255, 0.12);
+        }
+
+        .feature-card.col-rose {
+            --hover-color: rgba(255, 112, 166, 0.18);
+            border-color: rgba(255, 112, 166, 0.12);
+        }
+        .feature-card.col-rose:hover {
+            border-color: rgba(255, 112, 166, 0.45);
+            box-shadow: 0 20px 50px rgba(255, 112, 166, 0.12);
+        }
+
+        .feature-card.col-gold {
+            --hover-color: rgba(255, 215, 0, 0.15);
+            border-color: rgba(255, 215, 0, 0.12);
+        }
+        .feature-card.col-gold:hover {
+            border-color: rgba(255, 215, 0, 0.45);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.12);
+        }
+
+        .feature-card .icon {
+            font-size: 2.6rem;
+            margin-bottom: 16px;
+            display: block;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+        }
+        .feature-card h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+        .feature-card p {
+            font-size: 0.9rem;
+            opacity: 0.80;
+            line-height: 1.6;
+        }
+
+        /* ===== WHITELIST PIPELINE ===== */
+        #whitelist {
+            padding: 90px 0 90px;
+        }
+
+        .whitelist-box {
+            padding: 48px 44px;
+            max-width: 840px;
+            margin: 0 auto;
+            border-radius: 32px;
+            background: rgba(22, 11, 4, 0.70);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(242, 159, 49, 0.20);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .whitelist-box .step {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(242, 159, 49, 0.08);
+        }
+        .whitelist-box .step:last-of-type {
+            border-bottom: none;
+        }
+
+        .whitelist-box .step-num {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: rgba(242, 159, 49, 0.40);
+            min-width: 44px;
+        }
+
+        .whitelist-box .step-content {
+            flex: 1;
+        }
+        .whitelist-box .step-content h4 {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #FFB74D;
+            margin-bottom: 6px;
+        }
+        .whitelist-box .step-content p {
+            font-size: 0.9rem;
+            opacity: 0.75;
+            margin-bottom: 12px;
+        }
+
+        .whitelist-box .step-content .btn-google {
+            font-size: 0.85rem;
+            padding: 11px 26px;
+        }
+
+        .whitelist-box .checkbox-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 6px;
+            padding: 12px 18px;
+            background: rgba(242, 159, 49, 0.04);
+            border-radius: 12px;
+            border: 1px solid rgba(242, 159, 49, 0.08);
+            transition: all 0.3s;
+        }
+        .whitelist-box .checkbox-wrap.checked {
+            border-color: rgba(242, 159, 49, 0.35);
+            background: rgba(242, 159, 49, 0.08);
+        }
+        .whitelist-box .checkbox-wrap input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #F29F31;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .whitelist-box .checkbox-wrap label {
+            font-size: 0.9rem;
+            cursor: pointer;
+            opacity: 0.85;
+            display: flex;
+            align-items: center;
+        }
+
+        .whitelist-box .download-row {
+            margin-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(242, 159, 49, 0.10);
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: rgba(22, 11, 4, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(242, 159, 49, 0.35);
+            border-radius: 16px;
+            padding: 16px 32px;
+            font-size: 1rem;
+            color: #FDF6EC;
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+        .toast i {
+            color: #F29F31;
+            font-size: 1.4rem;
+        }
+
+        /* ===== FEEDBACK FORM ===== */
+        #feedback {
+            padding: 80px 0 90px;
+        }
+
+        .feedback-box {
+            padding: 48px 44px;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 32px;
+            background: rgba(22, 11, 4, 0.70);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(0, 229, 255, 0.20);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .feedback-box .form-group {
+            margin-bottom: 24px;
+        }
+        .feedback-box .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            opacity: 0.85;
+            letter-spacing: 0.02em;
+        }
+        .feedback-box .form-group input,
+        .feedback-box .form-group select,
+        .feedback-box .form-group textarea {
+            width: 100%;
+            padding: 14px 20px;
+            background: rgba(22, 11, 4, 0.50);
+            border: 1px solid rgba(242, 159, 49, 0.15);
+            border-radius: 14px;
+            color: #FDF6EC;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            transition: border 0.3s, box-shadow 0.3s;
+            outline: none;
+            backdrop-filter: blur(8px);
+        }
+        .feedback-box .form-group input:focus,
+        .feedback-box .form-group select:focus,
+        .feedback-box .form-group textarea:focus {
+            border-color: rgba(0, 229, 255, 0.45);
+            box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.10);
+        }
+        .feedback-box .form-group select option {
+            background: #0d0806;
+            color: #FDF6EC;
+        }
+        .feedback-box .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .feedback-box .form-group .diagnostic-box {
+            font-size: 0.75rem;
+            opacity: 0.60;
+            background: rgba(22, 11, 4, 0.40);
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 229, 255, 0.10);
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            word-break: break-all;
+            min-height: 44px;
+            cursor: default;
+            user-select: all;
+        }
+
+        .feedback-box .form-actions {
+            margin-top: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* ===== FOOTER ===== */
+        #footer {
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(242, 159, 49, 0.08);
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .footer-mantra {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            color: rgba(255, 183, 77, 0.35);
+            letter-spacing: 0.06em;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: rgba(253, 246, 236, 0.35);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #F29F31;
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            opacity: 0.30;
+            text-align: center;
+            margin-top: 24px;
+            letter-spacing: 0.04em;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-content .subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-content .cta-group {
+                justify-content: center;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .phone-wrapper {
+                margin-top: 20px;
+            }
+            .phone-mockup {
+                transform: rotateY(0deg) rotateX(0deg);
+            }
+            .phone-mockup:hover {
+                transform: scale(1.02);
+            }
+        }
+
+        @media (max-width: 768px) {
+            #hero {
+                padding: 120px 0 40px;
+            }
+
+            .phone-mockup {
+                width: 260px;
+                height: 540px;
+                border-radius: 40px;
+                padding: 11px;
+            }
+            .phone-screen {
+                border-radius: 30px;
+            }
+            .phone-slides {
+                border-radius: 30px;
+            }
+            .phone-slide {
+                padding: 0;
+            }
+
+            .whitelist-box {
+                padding: 32px 24px;
+            }
+            .feedback-box {
+                padding: 32px 24px;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 16px;
+                align-items: center;
+            }
+            .btn-primary,
+            .btn-secondary,
+            .btn-google,
+            .btn-whatsapp {
+                font-size: 0.9rem;
+                padding: 12px 24px;
+                width: 100%;
+                justify-content: center;
+            }
+            .whitelist-box .step {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .whitelist-box .step-num {
+                min-width: auto;
+            }
+            .navbar {
+                width: calc(100% - 24px);
+                padding: 12px 16px;
+            }
+        }
+
+        /* ===== UTILITY ===== */
+        .text-center {
+            text-align: center;
+        }
+        .mt-12 {
+            margin-top: 12px;
+        }
+        .mt-20 {
+            margin-top: 20px;
+        }
+        .mt-30 {
+            margin-top: 30px;
+        }
+        .mb-10 {
+            margin-bottom: 10px;
+        }
+        .gap-8 {
+            gap: 8px;
+        }
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .w-full {
+            width: 100%;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(242, 159, 49, 0.08);
+            border: 1px solid rgba(242, 159, 49, 0.15);
+            border-radius: 40px;
+            padding: 6px 20px;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 16px;
+        }
+
+        hr.divider-gold {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(242, 159, 49, 0.20), transparent);
+            margin: 30px 0;
+        }
+
+        /* Animation helper */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== PARTICLES CANVAS ===== -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ===== TOAST ===== -->
+    <div id="toast" class="toast">
+        <i class="fas fa-om"></i>
+        <span id="toast-message">Hari Bol! Please confirm you joined the whitelisting group first.</span>
+    </div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="brand">
+            <i class="fas fa-om"></i> Gita<span style="color:#FDF6EC;font-weight:400;">·Premium</span>
+        </div>
+        
+        <!-- Responsive Hamburger Toggle Button -->
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <div class="nav-links" id="navMenu">
+            <a href="#features">Features</a>
+            <a href="#whitelist">Whitelist</a>
+            <a href="#feedback">Support</a>
+            <a href="#whitelist" class="nav-cta"><i class="fas fa-download" style="margin-right:4px;"></i> Get App</a>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Left Content -->
+                <div class="hero-content">
+                    <div class="badge">
+                        <i class="fas fa-om"></i> 89,000+ Active Devotees
+                    </div>
+                    <h1 class="heading-xl">
+                        <span class="grad-saffron-gold">श्रीमद्भगवद्गीता</span><br />
+                        <span style="font-size:0.65em;display:block;margin-top:4px;color:#FDF6EC;">
+                            Srimad Bhagavad Gita
+                        </span>
+                        <span style="font-size:0.45em;display:block;font-family:'Poppins',sans-serif;font-weight:300;opacity:0.7;letter-spacing:0.06em;margin-top:4px;">
+                            Premium Mobile Edition
+                        </span>
+                    </h1>
+                    <p class="body-lg subtitle">
+                        Self-Realization Made Simple. Read, listen, build spiritual consistency,
+                        and share wisdom in <strong class="text-saffron">Hindi</strong>,
+                        <strong class="text-peacock">Marathi</strong> &amp;
+                        <strong class="text-rose">English</strong>.
+                    </p>
+                    <div class="cta-group">
+                        <a href="#whitelist" class="btn-primary">
+                            <i class="fas fa-om"></i> Join Closed Beta
+                        </a>
+                        <a href="#features" class="btn-secondary">
+                            <i class="fas fa-play-circle"></i> Explore
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div>
+                            <div class="stat-num">18</div>
+                            <div class="stat-label">Chapters</div>
+                        </div>
+                        <div>
+                            <div class="stat-num">700+</div>
+                            <div class="stat-label">Shlokas</div>
+                        </div>
+                        <div>
+                            <div class="stat-num">3</div>
+                            <div class="stat-label">Languages</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: 3D Phone with copy-protected Image Slider -->
+                <div class="phone-wrapper">
+                    <div class="phone-mockup" id="phoneMockup">
+                        <div class="phone-screen">
+                            <div class="phone-notch"></div>
+                            <div class="phone-slides" id="phoneSlides">
+                                <!-- Slide 1: Image -->
+                                <div class="phone-slide active" data-index="0">
+                                    <img src="images/slide1.png" alt="Srimad Bhagavad Gita Slide 1" class="slide-image" />
+                                </div>
+                                <!-- Slide 2: Image -->
+                                <div class="phone-slide" data-index="1">
+                                    <img src="images/slide2.png" alt="Srimad Bhagavad Gita Slide 2" class="slide-image" />
+                                </div>
+                                <!-- Slide 3: Image -->
+                                <div class="phone-slide" data-index="2">
+                                    <img src="images/slide3.png" alt="Srimad Bhagavad Gita Slide 3" class="slide-image" />
+                                </div>
+                            </div>
+                            <!-- Dots -->
+                            <div class="phone-dots" id="phoneDots">
+                                <span class="active" data-index="0"></span>
+                                <span data-index="1"></span>
+                                <span data-index="2"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section id="features">
+        <div class="container">
+            <div class="text-center fade-up">
+                <span class="section-badge" style="color: #00E5FF; border-color: rgba(0,229,255,0.2); background: rgba(0,229,255,0.04);"><i class="fas fa-gem"></i> Core Features</span>
+                <h2 class="heading-lg grad-peacock-teal">Wisdom at Your Fingertips</h2>
+                <p class="body-md" style="max-width:600px;margin:10px auto 0;opacity:0.75;">
+                    Designed for the modern devotee — spiritual consistency, deep understanding, and effortless sharing.
+                </p>
+            </div>
+            <div class="features-grid">
+                <!-- Saffron Accented Card -->
+                <div class="feature-card col-saffron glass fade-up">
+                    <span class="icon">🌐</span>
+                    <h3 class="text-saffron">3 Languages</h3>
+                    <p>Seamless, instant switching between <strong>Hindi</strong>, <strong>Marathi</strong>, and <strong>English</strong> with preserved context.</p>
+                </div>
+                <!-- Teal Accented Card -->
+                <div class="feature-card col-peacock glass fade-up">
+                    <span class="icon">🔥</span>
+                    <h3 class="text-peacock">Streak &amp; Karma Tracker</h3>
+                    <p>Build a spiritual reading habit. Track consistent days and accumulate Karma points with every shloka you study.</p>
+                </div>
+                <!-- Rose Accented Card -->
+                <div class="feature-card col-rose glass fade-up">
+                    <span class="icon">🎨</span>
+                    <h3 class="text-rose">Status Card Creator</h3>
+                    <p>Long press any shloka to generate and share high-quality story cards with saffron, peacock, and divine themes.</p>
+                </div>
+                <!-- Gold Accented Card -->
+                <div class="feature-card col-gold glass fade-up">
+                    <span class="icon">😕</span>
+                    <h3 class="text-gold">Mood Guidance</h3>
+                    <p>Your personal spiritual life coach — get the perfect guiding shloka based on your emotional state: Confused, Angry, Sad, or Fearful.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHITELIST PIPELINE ===== -->
+    <section id="whitelist">
+        <div class="container">
+            <div class="text-center fade-up">
+                <span class="section-badge" style="color: #FFB74D; border-color: rgba(255,183,77,0.2); background: rgba(255,183,77,0.04);"><i class="fas fa-user-check"></i> Beta Access</span>
+                <h2 class="heading-lg grad-saffron-gold">Whitelist &amp; Download App</h2>
+                <p class="body-md" style="max-width:540px;margin:10px auto 0;opacity:0.75;">
+                    Join the closed beta program and be among the first to experience the premium edition.
+                </p>
+            </div>
+
+            <div class="whitelist-box glass mt-30 fade-up" id="whitelistBox">
+                <!-- Step 1 -->
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <div class="step-content">
+                        <h4>Whitelist Google ID</h4>
+                        <p>Join the official testing group to whitelist your Google account.</p>
+                        <a href="https://groups.google.com/g/official-iskcon-hadapsar-app-testing-team" target="_blank" rel="noopener" class="btn-google">
+                            <i class="fab fa-google"></i> Join Testing Group
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <div class="step-content">
+                        <h4>Verification</h4>
+                        <p>Confirm that you have joined the whitelisting group above.</p>
+                        <div class="checkbox-wrap" id="checkboxWrap">
+                            <input type="checkbox" id="whitelistCheck" />
+                            <label for="whitelistCheck">
+                                <i class="fas fa-check-circle" style="color:#F29F31;margin-right:8px;"></i>
+                                I confirm that I joined the whitelisting group above.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step" style="border-bottom:none;">
+                    <div class="step-num">03</div>
+                    <div class="step-content">
+                        <h4>Direct Download from Play Store</h4>
+                        <p>Once whitelisted, download the app from Google Play.</p>
+                        <div class="download-row">
+                            <button id="googlePlayBtn" class="btn-google disabled">
+                                <i class="fab fa-google-play"></i> Get it on Google Play
+                            </button>
+                            <span style="font-size:0.75rem;opacity:0.45; display: inline-flex; align-items: center; gap: 6px;">
+                                <i class="fas fa-lock" id="lockIcon"></i> <span id="statusText">Gated — whitelist first</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider-gold" />
+                <div style="font-size:0.8rem;opacity:0.5;text-align:center;">
+                    <i class="fas fa-om"></i> Hari Bol! Your devotion brings you here.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEEDBACK FORM ===== -->
+    <section id="feedback">
+        <div class="container">
+            <div class="text-center fade-up">
+                <span class="section-badge" style="color: #FF70A6; border-color: rgba(255,112,166,0.2); background: rgba(255,112,166,0.04);"><i class="fas fa-headset"></i> Developer Support</span>
+                <h2 class="heading-lg grad-rose-gold">Idea or an Issue?</h2>
+                <p class="body-md" style="max-width:540px;margin:10px auto 0;opacity:0.75;">
+                    Encountered a glitch or have a brilliant UI/UX feature suggestion? Send diagnostic telemetry directly to Developer Devotee (Santosh Prabhu) on WhatsApp.
+                </p>
+            </div>
+
+            <div class="feedback-box glass mt-30 fade-up" id="feedbackBox">
+                <form id="feedbackForm" novalidate>
+                    <div class="form-group">
+                        <label for="userName"><i class="fas fa-user" style="margin-right:6px;opacity:0.4;"></i> Your Name</label>
+                        <input type="text" id="userName" placeholder="e.g. Radhe Krishna" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="logType"><i class="fas fa-tag" style="margin-right:6px;opacity:0.4;"></i> Log Type</label>
+                        <select id="logType" required>
+                            <option value="">— Select —</option>
+                            <option value="App Bug 🐛">App Bug 🐛</option>
+                            <option value="UI/UX Idea ✨">UI/UX Idea ✨</option>
+                            <option value="Seeking Support 🙏">Seeking Support 🙏</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-microchip" style="margin-right:6px;opacity:0.4;"></i> Auto Diagnostics</label>
+                        <div class="diagnostic-box" id="diagnosticBox">Loading system info…</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="detailMsg"><i class="fas fa-pen" style="margin-right:6px;opacity:0.4;"></i> Elaborate Detail</label>
+                        <textarea id="detailMsg" placeholder="Hare Krishna, the suggestion/bug I wanted to report is…" required></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Chat on WhatsApp with Dev. Santosh
+                        </button>
+                        <span style="font-size:0.75rem;opacity:0.4;align-self:center;">
+                            <i class="fas fa-shield-alt"></i> Encrypted · Secure
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-mantra">
+                    ॐ सह नाववतु । सह नौ भुनक्तु ॥
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms</a>
+                    <a href="#feedback">Support</a>
+                </div>
+            </div>
+            <div class="footer-copy">
+                © 2026 Srimad Bhagavad Gita — Premium Multi-lingual Edition &bull; v2.4.1 &bull; Built with devotion.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ============================================================
+            // 1. PARTICLE ENGINE
+            // ============================================================
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height, particles = [];
+
+            function resizeCanvas() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * width;
+                    this.y = height + 20 + Math.random() * 80;
+                    this.size = 1.2 + Math.random() * 3.5;
+                    this.speed = 0.25 + Math.random() * 0.7;
+                    this.opacity = 0.15 + Math.random() * 0.50;
+                    this.wobble = Math.random() * 6 - 3;
+                    this.wobbleSpeed = 0.008 + Math.random() * 0.02;
+                    this.phase = Math.random() * Math.PI * 2;
+                }
+                update() {
+                    this.y -= this.speed;
+                    this.phase += this.wobbleSpeed;
+                    this.x += Math.sin(this.phase) * this.wobble * 0.3;
+                    if (this.y < -20) {
+                        this.reset();
+                        this.y = height + 20 + Math.random() * 60;
+                    }
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+                    const colors = [
+                        `rgba(255, 183, 77, ${this.opacity})`,
+                        `rgba(242, 159, 49, ${this.opacity})`,
+                        `rgba(0, 229, 255, ${this.opacity * 0.7})`
+                    ];
+                    const randColor = colors[Math.floor(this.x + this.y) % colors.length];
+                    gradient.addColorStop(0, randColor);
+                    gradient.addColorStop(1, `rgba(242, 159, 49, 0)`);
+                    ctx.fillStyle = gradient;
+                    ctx.fill();
+                    
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size * 0.3, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 0.9})`;
+                    ctx.fill();
+                }
+            }
+
+            const NUM_PARTICLES = 130;
+            for (let i = 0; i < NUM_PARTICLES; i++) {
+                const p = new Particle();
+                p.y = Math.random() * height;
+                particles.push(p);
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, width, height);
+                for (const p of particles) {
+                    p.update();
+                    p.draw();
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+
+            // ============================================================
+            // 2. NAV COLLAPSE TOGGLE
+            // ============================================================
+            const navToggle = document.getElementById('navToggle');
+            const navbar = document.getElementById('navbar');
+            const navLinks = document.querySelectorAll('#navMenu a');
+
+            if (navToggle && navbar) {
+                navToggle.addEventListener('click', function() {
+                    navbar.classList.toggle('expanded');
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navbar.classList.remove('expanded');
+                });
+            });
+
+            // ============================================================
+            // 3. SECURE GESTURE-ENABLED PHONE CAROUSEL (1.5 SECONDS AUTO)
+            // ============================================================
+            const phoneSlides = document.getElementById('phoneSlides');
+            const slides = document.querySelectorAll('.phone-slide');
+            const dots = document.querySelectorAll('#phoneDots span');
+            let currentSlide = 0;
+            let slideInterval;
+            
+            // Touch/Mouse Swipe State
+            let startX = 0;
+            let isDragging = false;
+
+            function goToSlide(index) {
+                slides.forEach((s, i) => {
+                    s.classList.toggle('active', i === index);
+                });
+                dots.forEach((d, i) => {
+                    d.classList.toggle('active', i === index);
+                });
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                const next = (currentSlide + 1) % slides.length;
+                goToSlide(next);
+            }
+
+            function prevSlide() {
+                const prev = (currentSlide - 1 + slides.length) % slides.length;
+                goToSlide(prev);
+            }
+
+            dots.forEach((dot) => {
+                dot.addEventListener('click', function() {
+                    const idx = parseInt(this.dataset.index, 10);
+                    goToSlide(idx);
+                    resetSlideInterval();
+                });
+            });
+
+            function resetSlideInterval() {
+                if (slideInterval) clearInterval(slideInterval);
+                // Set auto-slider interval exactly to 1.5 seconds (1500ms)
+                slideInterval = setInterval(nextSlide, 1500);
+            }
+
+            // --- Touch & Mouse Drag Swipe Controller ---
+            function handleDragStart(clientX) {
+                startX = clientX;
+                isDragging = true;
+                if (slideInterval) clearInterval(slideInterval); // pause auto-rotate during swipe interaction
+            }
+
+            function handleDragEnd(clientX) {
+                if (!isDragging) return;
+                isDragging = false;
+                const diffX = clientX - startX;
+                const threshold = 45; // swipe sensitivity threshold in pixels
+
+                if (diffX < -threshold) {
+                    nextSlide(); // Swiped Left
+                } else if (diffX > threshold) {
+                    prevSlide(); // Swiped Right
+                }
+                resetSlideInterval(); // resume auto-rotate
+            }
+
+            // Mouse Event Listeners
+            phoneSlides.addEventListener('mousedown', function(e) {
+                e.preventDefault();
+                handleDragStart(e.clientX);
+            });
+
+            phoneSlides.addEventListener('mouseup', function(e) {
+                handleDragEnd(e.clientX);
+            });
+
+            phoneSlides.addEventListener('mouseleave', function() {
+                if (isDragging) {
+                    isDragging = false;
+                    resetSlideInterval();
+                }
+            });
+
+            // Touch Event Listeners for Mobile Swipe
+            phoneSlides.addEventListener('touchstart', function(e) {
+                handleDragStart(e.touches[0].clientX);
+            }, { passive: true });
+
+            phoneSlides.addEventListener('touchend', function(e) {
+                handleDragEnd(e.changedTouches[0].clientX);
+            }, { passive: true });
+
+            // Start auto-rotate initially
+            resetSlideInterval();
+
+            // ============================================================
+            // 4. IMAGE PROTECTION (ANTI-COPY & SAVE) INSIDE PHONE PREVIEW
+            // ============================================================
+            const phoneMockup = document.getElementById('phoneMockup');
+            if (phoneMockup) {
+                // Prevent context menu (Right-click)
+                phoneMockup.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                });
+                // Prevent image and element dragging
+                phoneMockup.addEventListener('dragstart', function(e) {
+                    e.preventDefault();
+                });
+                // Prevent text selection inside phone mockup
+                phoneMockup.addEventListener('selectstart', function(e) {
+                    e.preventDefault();
+                });
+            }
+
+            // ============================================================
+            // 5. WHITELIST CHECKBOX → ENABLE GOOGLE PLAY BUTTON
+            // ============================================================
+            const checkBox = document.getElementById('whitelistCheck');
+            const googleBtn = document.getElementById('googlePlayBtn');
+            const checkboxWrap = document.getElementById('checkboxWrap');
+            const lockIcon = document.getElementById('lockIcon');
+            const statusText = document.getElementById('statusText');
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            let toastTimer = null;
+
+            function showToast(msg) {
+                toastMsg.textContent = msg || 'Hari Bol! Please confirm you joined the whitelisting group first.';
+                toast.classList.add('show');
+                if (toastTimer) clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 4500);
+            }
+
+            checkBox.addEventListener('change', function() {
+                const checked = this.checked;
+                checkboxWrap.classList.toggle('checked', checked);
+                googleBtn.classList.toggle('disabled', !checked);
+                if (checked) {
+                    googleBtn.style.cursor = 'pointer';
+                    googleBtn.style.opacity = '1';
+                    googleBtn.style.filter = 'none';
+                    if (lockIcon && statusText) {
+                        lockIcon.className = 'fas fa-check-circle';
+                        lockIcon.style.color = '#F29F31';
+                        statusText.textContent = 'Whitelist confirmed';
+                        statusText.parentElement.style.opacity = '0.8';
+                    }
+                } else {
+                    googleBtn.style.cursor = 'not-allowed';
+                    googleBtn.style.opacity = '0.45';
+                    googleBtn.style.filter = 'grayscale(0.5)';
+                    if (lockIcon && statusText) {
+                        lockIcon.className = 'fas fa-lock';
+                        lockIcon.style.color = '';
+                        statusText.textContent = 'Gated — whitelist first';
+                        statusText.parentElement.style.opacity = '0.35';
+                    }
+                }
+            });
+
+            googleBtn.addEventListener('click', function(e) {
+                if (this.classList.contains('disabled')) {
+                    e.preventDefault();
+                    showToast('Hari Bol! Please confirm you joined the whitelisting group first.');
+                    checkboxWrap.style.borderColor = 'rgba(242,159,49,0.5)';
+                    setTimeout(() => {
+                        checkboxWrap.style.borderColor = '';
+                    }, 1200);
+                    return;
+                }
+                window.open('https://play.google.com/store/apps/details?id=com.gita.premium', '_blank');
+            });
+
+            // ============================================================
+            // 6. FEEDBACK FORM → WHATSAPP
+            // ============================================================
+            const form = document.getElementById('feedbackForm');
+            const diagnosticBox = document.getElementById('diagnosticBox');
+
+            // Gather system diagnostics
+            function getDiagnostics() {
+                const ram = navigator.deviceMemory ? (navigator.deviceMemory + ' GB') : 'N/A';
+                const cores = navigator.hardwareConcurrency || 'N/A';
+                const platform = navigator.platform || 'unknown';
+                const screenRes = `${window.screen.width}×${window.screen.height}`;
+                const userAgent = navigator.userAgent || 'unknown';
+                const lang = navigator.language || 'en-US';
+                return {
+                    ram,
+                    cores,
+                    platform,
+                    screenRes,
+                    userAgent: userAgent.substring(0, 120),
+                    lang,
+                    timestamp: new Date().toISOString()
+                };
+            }
+
+            function renderDiagnostics() {
+                const d = getDiagnostics();
+                diagnosticBox.textContent =
+                    `RAM: ${d.ram}  |  CPU Cores: ${d.cores}  |  OS: ${d.platform}  |  Resolution: ${d.screenRes}  |  Lang: ${d.lang}  |  UA: ${d.userAgent}`;
+            }
+            renderDiagnostics();
+
+            // Update diagnostics every 10s (in case of changes)
+            setInterval(renderDiagnostics, 10000);
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = document.getElementById('userName').value.trim();
+                const logType = document.getElementById('logType').value;
+                const detail = document.getElementById('detailMsg').value.trim();
+
+                if (!name || !logType || !detail) {
+                    showToast('Hari Bol! Please fill in all fields before sending.');
+                    return;
+                }
+
+                const diag = getDiagnostics();
+                const payload =
+                    `*📿 Bhagavad Gita Premium — Feedback*%0A%0A` +
+                    `*Name:* ${name}%0A` +
+                    `*Type:* ${logType}%0A` +
+                    `*Detail:* ${detail}%0A%0A` +
+                    `*📊 Diagnostics*%0A` +
+                    `RAM: ${diag.ram}%0A` +
+                    `Cores: ${diag.cores}%0A` +
+                    `Platform: ${diag.platform}%0A` +
+                    `Resolution: ${diag.screenRes}%0A` +
+                    `Language: ${diag.lang}%0A` +
+                    `UA: ${diag.userAgent}%0A` +
+                    `Time: ${diag.timestamp}%0A%0A` +
+                    `🙏 Hari Bol!`;
+
+                const url = `https://wa.me/919561160799?text=${payload}`;
+                window.open(url, '_blank');
+            });
+
+            // ============================================================
+            // 7. SCROLL ANIMATION (FADE-UP)
+            // ============================================================
+            const fadeElements = document.querySelectorAll('.fade-up');
+
+            function checkFade() {
+                const windowHeight = window.innerHeight;
+                const threshold = 80;
+                fadeElements.forEach((el) => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < windowHeight - threshold) {
+                        el.classList.add('visible');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkFade);
+            window.addEventListener('resize', checkFade);
+            // Initial check after small delay
+            setTimeout(checkFade, 300);
+            window.addEventListener('load', checkFade);
+
+            // ============================================================
+            // 8. SMOOTH SCROLL FOR NAV LINKS
+            // ============================================================
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        const navHeight = document.getElementById('navbar').offsetHeight + 20;
+                        const targetPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // ============================================================
+            // 9. NAVBAR GLASS EFFECT ON SCROLL
+            // ============================================================
+            window.addEventListener('scroll', function() {
+                const current = window.pageYOffset;
+                if (current > 60) {
+                    navbar.style.background = 'rgba(6, 2, 0, 0.90)';
+                    navbar.style.borderColor = 'rgba(242, 159, 49, 0.30)';
+                    navbar.style.boxShadow = '0 8px 50px rgba(0,0,0,0.9)';
+                } else {
+                    navbar.style.background = 'rgba(22, 11, 4, 0.75)';
+                    navbar.style.borderColor = 'rgba(242, 159, 49, 0.20)';
+                    navbar.style.boxShadow = '0 8px 40px rgba(0,0,0,0.7)';
+                }
+            });
+
+            console.log('🙏 Srimad Bhagavad Gita — Premium Landing Page loaded with devotion.');
+        })();
+    </script>
+
+</body>
+</html>
